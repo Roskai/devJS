@@ -19,8 +19,18 @@
 
 </body>
 <script>
-  var p = React.createElement("p",{id:"Paragraph", style:{color : "red", backgroundColor : "bluez"}},"Bonjour les L3")
+  let p = React.createElement("p",{id:"Paragraph", className : "rouge"},"Bonjour les L3")
+  let tabMonument = ["Le Louvre", "Sacré cœur", "Moulin rouge", "Notre Dame", "Orsay"]
+  let ul = React.createElement("ul", null,[
+      tabMonument.map((item,index)=>{
+        return React.createElement("li",{key:index},item);
+      })
+  ]
+
+  )
   console.log(p);
-  ReactDOM.render(p,document.getElementById("app"))
+  console.log(ul);
+
+  ReactDOM.render(ul,document.getElementById("app"))
 </script>
 </html>
