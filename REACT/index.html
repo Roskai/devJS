@@ -20,6 +20,18 @@
 
 </body>
 <script type="text/babel">
+  class MonComposant extends React.Component {
+    constructor(props) {
+      super(props)
+    }
+    render(){
+      return (
+      <p class="rouge">
+        <h1>Bienvenue en L3</h1>
+      </p>
+      );
+    }
+  }
   let tabMonument = ["Le Louvre", "Sacré cœur", "Moulin rouge", "Notre Dame", "Orsay"]
   var p =  <ul>
     {
@@ -27,6 +39,6 @@
           return <li key = {index}>{item}</li>
     })}
   </ul>
-  ReactDOM.render(p,document.getElementById("app"));
+  ReactDOM.render(MonComposant,document.getElementById("app"));
 </script>
 </html>
