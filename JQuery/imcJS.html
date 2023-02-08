@@ -1,0 +1,85 @@
+<!DOCTYPE html>œ
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title>Calcul de L’IMC</title>
+    <style  type="text/css">
+      .normale{
+        background-color:greenyellow;
+        font-size:40px;
+      }
+      .autre{
+        background-color:red;
+        font-size:40px;
+      }
+      .italique{
+        font-style:italic;
+      }
+      .maigreur{
+        background-color:#ff9933;
+        font-size:40px;
+      }
+      #BlocSaisie{
+        width: 50%;
+        float:left;
+      }
+      #BlocResultat{
+        width: 50%;
+        float:left;
+      }
+    </style>
+    <script>
+    $(document).ready(function() {
+        // mettre ici le code jQuery à tester.
+        window.alert("Chargement effectué")
+        $('#btnCalcul').on({click(afficherIMC()});
+      }
+
+      function calculeIMC(poids, taille) {
+        return poids / (taille * taille);
+      }
+      function afficherIMC() {
+        var poids = $('#txtPoids').val();
+        let taille = $('#txtTaille').val();
+        const imc = calculeIMC(poids,taille);
+        const LE_RES = $('#indice');
+        const L_EXPLICATION = $('#explication');
+        // méthode toFixed(n) renvoie n chiffres après la virgule
+        LE_RES.html(imc.toFixed(1));
+        switch (true) {
+          case (imc < 16.5):
+          LE_RES.attr("class" "autre");
+          L_EXPLICATION.html("Anorexie");
+          break;
+          case (imc < 18.5):
+          LE_RES.attr("class" "maigreur")
+          L_EXPLICATION.html("Maigreur")
+          break;
+          case (imc < 20) :
+          LE_RES.attr("class" "normale");
+          L_EXPLICATION.html("Corpulence Normale");
+          break;
+          default:
+          LE_RES.attr("class" "autre");
+          L_EXPLICATION.html("Obésité");
+        }
+
+      }
+    </script>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Indice de masse corporelle</legend>
+      <div id="BlocSaisie">
+        <p>Taille <input type="text" id="txtTaille" > mètre</p>
+        <p>Poids <input type="text" id="txtPoids"> kg </p>
+        <button type="button" id="btnCalcul" value="Calculer">Calculer</button>
+      </div>
+      <div id="BlocRésultat">
+        <p><span id="indice"></span></p>
+        <p><span id="explication" class="italique"></span></p>
+      </div>
+    </fieldset>
+  </body>
+</html>

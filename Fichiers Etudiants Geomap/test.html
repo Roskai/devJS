@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Test du langage JavaScript</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="./style.css" rel="stylesheet" type="text/css"/>
+	<script language="JavaScript" src="./pg.js"></script>
+</head>
+<body>
+<div id="saisie">
+<h1>Consultation de la carte géographique d'un département</h1>
+<center>
+<table>
+<tr><td>Région : <select name="reg" id="reg" onchange="afficherZoneDeListe();">
+				<option value="Aquitaine">Nouvelle-Aquitaine</option>
+				<option value="Paca">Paca</option>
+				<option value="Poitou-charentes">Poitou-charentes</option>
+			</select>
+	</td>
+	<td>Département : <span id="liste"></span></td>
+</tr>
+<tr>
+	<td colspan="2"><input type="button" value="Afficher carte" onclick="afficherImage();"/></td>
+</tr>
+</table>
+</center>
+</div>
+<div id="res">
+
+</div>
+</body>
+<html>

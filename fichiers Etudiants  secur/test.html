@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Test du langage JavaScript</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="./style.css" rel="stylesheet" type="text/css"/>
+	<script language="JavaScript" src="./pg.js"></script>
+</head>
+<body>
+<div id="saisie">
+<h1>Evolution du taux d'alcoolémie</h1>
+<h2>Poids : <input type="text" size="3" id="poids" name="poids"/></h2>
+<h2>Sexe : <select id="sexe" name="sexe">
+				<option value="F">Femme</option>
+				<option value="M">Homme</option>
+			</select>
+<h2>Degré : <input type="text" size="3" id="deg" name="deg"/></h2>
+
+<h2><input type="button" value="Tester getTauxAlccolémie" onclick="testerFonction1();"/></h2>
+<h2><input type="button" value="Tester estUnEntierPositif" onclick="testerFonction2();"></h2>
+<h2><input type="button" value="Afficher tableau" onclick="traiter();"></h2>
+<h2><input type="button" value="Tester estUnEntierPositifREGEX" onclick="testerFonctionREGEX()"></h2>
+</div>
+<div id="res">
+
+</div>
+</body>
+<html>

@@ -1,0 +1,8 @@
+react travail sur un dom virtuel et met a jour le rendu pour les nœuds qui ont été modifié
+React peut être utiliser pour faire des app mobile avec reac native
+
+créer une page html, 
+inclure deux bibliothèeque
+ajouter <div id='app'></div> toujours être vide
+écire le react en bas de page
+

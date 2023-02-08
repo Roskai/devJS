@@ -1,0 +1,101 @@
+
+forEach((nuits_dispos, i) => {
+  var nb_places_restantes = nuits_dispos[i];
+  if (nb_places_restantes < 10) {
+    result = [true, 'rouge', "nombre de places restantes inférieur à 10"];
+  }
+  else if (nb_places_restantes >= 10 && nb_places_restantes <= 20) {
+    result = [true, 'orange', "nombre de places restantes compris entre 10 et 20"];
+  }
+  else {
+    result = [true, 'vert', "nombre de places restantes supérieur à 20"];
+  }
+} else {
+  // si la date n'est pas présente dans le dictionnaire
+  result = [false, '', "pas de nuit disponible"];
+}
+
+
+});
+
+
+$('#txtdate').datepicker({
+firstDay: 1,
+dateFormat : 'yy-mm-dd',
+numberOfMonths: nbmois,
+minDate : 0,
+maxDate : nbmois*31,
+beforeShowDay : creerCalendrierSoiree
+});
+/*
+objectif des méthodes getDate(), getMonth() et getFullYear()
+- La méthode getDate() renvoie le jour du mois (1 à 31) de la date spécifiée.
+- La méthode getMonth() renvoie le mois (0 à 11) de la date spécifiée, où 0 représente janvier et 11 représente décembre.
+- La méthode getFullYear() renvoie l'année (4 chiffres) de la date spécifiée.
+*/
+function creerCalendrierSoiree(date) {
+  var jour = date.getDate() + 1;
+  var mois = date.getMonth() + 1;
+  var annee = date.getFullYear();
+  var fullDate = annee + "-" + mois + "-" + jour;
+  var result = [];
+
+  if (fullDate) {
+
+  }
+
+  for (fullDate in nuits_dispos) {
+    if (nuits_dispos.hasOwnProperty(fullDate)) {
+      var placesRestantes = nuits_dispos[fullDate]
+        
+    } else {
+      result = [false, "", "date non disponible"];
+    }
+      return result;
+    }
+  }
+}
+function creerCalendrierSoiree(date) {
+  var jour = date.getDate()+1;
+  var mois = date.getMonth() + 1;
+  var annee = date.getFullYear();
+  var dateString = annee + "-" + mois + "-" + jour;
+  var result;
+
+  if (dateString in nuits_dispos) {
+    var places = nuits_dispos[dateString];
+    if (places < 10) {
+      result = [true, 'rouge', "nombre de places inférieur à 10"];
+    } else if (places >= 10 && places <= 20) {
+      result = [true, 'orange', "nombre de places compris entre 10 et 20"];
+    } else {
+      result = [true, 'vert', "nombre de places supérieur à 20"];
+    }
+  } else {
+    result = [false, '', "pas de sélection possible"];
+  }
+
+  return result;
+}
+function creerCalendrierSoiree(date) {
+  var jour = date.getDate() + 1;
+  var mois = date.getMonth() + 1;
+  var annee = date.getFullYear();
+  var dateFormatee = annee + "-" + mois + "-" + jour;
+
+  var nbPlacesRestantes = nuits_dispos[dateFormatee];
+  if (nbPlacesRestantes === undefined) {
+    return [false, ""];
+  }
+
+  var couleurFond;
+  if (nbPlacesRestantes < 10) {
+    couleurFond = "rouge";
+  } else if (nbPlacesRestantes >= 10 && nbPlacesRestantes <= 20) {
+    couleurFond = "orange";
+  } else {
+    couleurFond = "vert";
+  }
+
+  return [true, couleurFond];
+}

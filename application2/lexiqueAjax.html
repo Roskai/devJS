@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>jQuery Lexique HTML</title>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+	<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#lettre_a').click(function() {
+                $.ajax({
+               		url:"http://localhost/definitions/lettre_a.html",  // à compléter
+                 	success: function () {
+                 		window.alert("succès")         , // à compléter
+										actualiserPage()
+                 	}
+
+	   				 			error:  function () {
+	   				 				window.alert("échec")
+	   				 			}
+                })
+        });
+
+    });
+
+function actualiserPage(reponse){
+$('#lexique').html(reponse);
+}
+</script>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <h2>Petit lexique informatique</h2>
+    </div>
+    <div id="alphabet">
+        <div >
+            <h3><a id="lettre_a" href="#">A</a></h3>
+        </div>
+        <div id="lettre_b">
+            <h3><a href="#">B</a></h3>
+        </div>
+        <div>
+            <h3>C</h3>
+        </div>
+        <div>
+            <h3>D</h3>
+        </div>
+        <div>
+            <h3>Etc</h3>
+        </div>
+    </div>
+    <div id="lexique"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+/* Couleur rose */
+td.rose a {
+  background: #ff69b4;
+}
+/* Couleur grise */
+td.gris a {
+  background: #808080;
+}
+/* Couleur jaune */
+td.jaune a {
+    background: #FFFF00;
+}
+.vert {
+  background-color: green;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.rouge {
+  background-color: red;
+}

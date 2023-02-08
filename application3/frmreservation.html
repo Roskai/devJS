@@ -1,0 +1,94 @@
+  <!doctype html>
+  <html lang="fr">
+   <head>
+      <title> Les Soirées Etoilées au sommet du pic</title>
+      <meta charset="utf-8" />
+      <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="./Aristo/Aristo.css">
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+      <link rel="stylesheet" href="./style.css">
+      <script src="http://code.jquery.com/jquery-3.6.3.js"></script>
+      <script src="http://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+      <script>
+        $(function(){
+          var aujourdhui = new Date();
+          var nbmois = 12 - aujourdhui.getMonth();
+          var nuits_dispos;
+          nuits_dispos ={ "2023-02-14": 16,
+                          "2023-02-20": 5,
+                          "2023-03-13": 18,
+                          "2023-03-09": 30};
+
+          function creerCalendrierSoiree(date) {
+              var jour = date.getDate()+1;
+              var mois = date.getMonth() + 1;
+              var annee = date.getFullYear();
+              // formatage de la date pour la comparer à la clé du dictionnaire nuits_dispos
+              var dateString = annee + "-" + (mois < 10 ? "0" + mois : mois) + "-" + (jour < 10 ? "0" + jour : jour);
+              var result;
+              console.log(dateString);
+              var nbPlacesRestantes = nuits_dispos[dateString];
+              if (nbPlacesRestantes === undefined) {
+                console.log("undefined");
+                result = [false, '', "pas de sélection possible"];
+              } else {
+                if (nbPlacesRestantes < 10) {
+                  result = [true, "rouge", "places restantes : " + nbPlacesRestantes];
+                } else if (nbPlacesRestantes >= 10 && nbPlacesRestantes <= 20) {
+                  result = [true, "orange", "places restantes : " + nbPlacesRestantes];
+                } else {
+                  result = [true, "vert", "places restantes : " + nbPlacesRestantes];
+                }
+              }
+              return result;
+            }
+
+        $('#txtdate').datepicker({
+          firstDay: 1,
+          dateFormat : 'yy-mm-dd',
+          numberOfMonths: nbmois,
+          minDate : 0,
+          maxDate : nbmois*31,
+          beforeShowDay : creerCalendrierSoiree
+        });
+      }) ;
+    </script>
+    </head>
+    <body>
+      <div class="container-fluid">
+
+        <div class="row">
+       <header class="row-fluid"> <img src="./mabanniere2.jpg" alt="Banniere" /> </header>
+
+       <div class="row-fluid"><h3> LES SOIREES AU PIC DU MIDI DE BIGORRE </h3></div>
+
+      <nav class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <div class="container">
+            <ul class="nav">
+      		      <li><a href="./frmreservation.html"> Effectuer une réservation </a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      <div id="contenu" >
+      <form method="POST" action="./enregistrerReservation.php">
+      <fieldset>
+
+           <legend>Effectuer une réservation:
+           </legend>
+      		<p>
+      			<label for="txtdate">Date Soirée </label>
+      			 <input type="text" id="txtdate" />
+      		</p>
+      			<input type="submit" value="Valider" name="valider" />
+            <input type="reset" value="Annuler" name="annuler" />
+
+      </fieldset>
+      </form>
+      </div>
+    </body>
+   </html>

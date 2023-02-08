@@ -1,0 +1,5 @@
+fonction getTauxAlcoolémie(lePoids, leSexe, leDegréEntier, leNombreVerres) : réel
+    début
+        tauxAlcool <- (leDegréEntier * 0.01 * leNombreVerres * 100) / (lePoids * (leSexe = "M" ? 0.7 : 0.6))
+        renvoyer tauxAlcool
+    fin

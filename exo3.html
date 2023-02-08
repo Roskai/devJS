@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      /*
+      function estUnEntierPositif(laValeur){
+          var i;
+          var nbCars;
+          var caractère;
+          var chiffres;
+          var ok;
+          chiffres = "0123456789";
+          nbCars=laValeur.length;
+          for (i=0;i caractère=laValeur.charAt(i);
+          posCaractère=chiffres.indexOf(caractère)
+          if (posCaractère >= 0)
+          ok=true;
+          else
+          ok=false;
+          } return (ok);
+      }
+      */
+      function estUnEntierPositif(laValeur) {
+        var ok;
+        if (laValeur.isInteger()) {
+          if (laValeur>0){
+            ok=TRUE
+          }else {
+            ok=FALSE
+          }
+        } else {
+          ok=FALSE
+        }
+        console.log(ok);
+      }
+    </script>
+    <title>Exo3</title>
+  </head>
+  <body>
+  <p>
+    L'objectif de la fonction JavaScript ci-dessous est de tester si une chaîne de caractères est un
+    entier positif. Indiquer pourquoi cette solution est fausse et proposer un correctif approprié. La
+    description des méthodes de la classe String est fournie en annexe 1.
+  </p>
+  <code>
+    function estUnEntierPositif(laValeur){ <br>
+       var i; <br>
+       var nbCars; <br>
+       var caractère; <br>
+       var chiffres; <br>
+       var ok; <br>
+       chiffres = "0123456789"; <br>
+       nbCars=laValeur.length; <br>
+       for (i=0;i<nbCars;i++){ <br>
+          caractère=laValeur.charAt(i); <br>
+          posCaractère=chiffres.indexOf(caractère) <br>
+          if (posCaractère >= 0) <br>
+          ok=true; <br>
+          else <br>
+        ok=false; <br>
+      }
+    return (ok); <br>
+    } <br>
+  </code>
+  <p>
+    Ce code est faux et inulement complexe
+    Nous pouvons juste faire : <br>
+  <code>
+    function estUnEntierPositif(laValeur) { <br>
+      if (laValeur.isInteger()) { <br>
+        return (laValeur>0)   <br>
+      } else { <br>
+        return (false) <br>
+      } <br>
+    } <br>
+  </code>
+  </p>
+  <h2>Valeur : <input type="text" id="laValeur"><h2>
+    <button type="button" name="button" onclick="estUnEntierPositif(document.getElementById("estUnEntierPositif"))">Test</button>
+
+  </body>
+</html>
