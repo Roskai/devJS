@@ -6,3 +6,19 @@ inclure deux bibliothèeque
 ajouter <div id='app'></div> toujours être vide
 écire le react en bas de page
 
+JSX :
+Nouveau langage :
+var p = <p> B'jour </p>
+
+faut traduire en JS avec babel
+<script type="text/babel">
+  
+</script>
+ PAS DE IF NI DE FOR
+ 
+chaque balsie commençant par une minuscule est du html
+les attribut sont isérer par une chaine de caractère
+
+toute balise commençant par une majuscule doit être déclarer.
+placer du js entre accolade
+ 

@@ -5,10 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
 
-  <title>premier affichage avec REACT</title>
+  <title>second affichage avec REACT</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone@7.20.15/babel.min.js"></script>
 
 </head>
 
@@ -18,19 +19,14 @@
   </div>
 
 </body>
-<script>
-  let p = React.createElement("p",{id:"Paragraph", className : "rouge"},"Bonjour les L3")
+<script type="text/babel">
   let tabMonument = ["Le Louvre", "Sacré cœur", "Moulin rouge", "Notre Dame", "Orsay"]
-  let ul = React.createElement("ul", null,[
-      tabMonument.map((item,index)=>{
-        return React.createElement("li",{key:index},item);
-      })
-  ]
-
-  )
-  console.log(p);
-  console.log(ul);
-
-  ReactDOM.render(ul,document.getElementById("app"))
+  var p =  <ul>
+    {
+    tabMonument.map((item, index)=>{
+          return <li key = {index}>{item}</li>
+    })}
+  </ul>
+  ReactDOM.render(p,document.getElementById("app"));
 </script>
 </html>
